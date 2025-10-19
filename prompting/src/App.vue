@@ -13,19 +13,29 @@
 
 <style scoped>
 .container{
+  height: 100vh;
   display: flex;
-  gap: 50px;
+  background-color: #bdbbbb98;
+  justify-content: space-evenly;
+  align-items: center;
 }
 .left{
-  display: flex;
-  width: 70%;
+  padding: 25px;
+  border-radius: 3%;
+  width: 60%;
+  height: 90%;
+    background-color: #ffff;
+    box-shadow: 2px #aea9a9;
 }
 .right{
+  border-radius: 3%;
+  padding: 25px;
+  width: 30%;
+  height: 90%;
+  background-color: #ffff;
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 50px;
-  width: 30%;
+  justify-content: center;
 }
 </style>
-
