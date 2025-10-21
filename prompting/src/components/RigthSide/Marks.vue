@@ -1,28 +1,14 @@
 <script setup>
-import { onMounted, ref } from 'vue';
-
-const score = ref(0)
-let interval; 
-
-const scoreAnimation = ()=>{
- if(score.value >= 80){ 
-      clearInterval(interval)
-    }else{
-      score.value = score.value + 1; 
-    }
-}
-
-onMounted(()=>{
-  interval = setInterval(scoreAnimation, 50) 
+const props = defineProps({
+  marks:Number
 })
 </script>
 
 <template>
-<!-- From Uiverse.io by sabbircoder07 --> 
       <div class="results-summary-container__result">
         <div class="heading-tertiary">Your Result</div>
         <div class="result-box">
-          <div class="heading-primary">{{ score }}</div>
+          <div class="heading-primary">{{ props.marks }}</div>
           <p class="result">of 100</p>
         </div>
   
