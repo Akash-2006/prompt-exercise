@@ -48,8 +48,7 @@ src/
 ## ⚙️ Environment Variables
 Create a `.env` file in the project root with the following keys:
 ```
-VITE_API_BASE_URL=https://your-api-endpoint.com
-VITE_OPENAI_API_KEY=your_openai_api_key_here
+VITE_API_KEY=<your open route api key>
 ```
 
 ## 🧠 How It Works
