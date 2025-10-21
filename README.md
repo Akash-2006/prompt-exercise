@@ -12,7 +12,6 @@ This is a Vue.js web application that allows users to upload research papers (PD
 ## 🏗️ Tech Stack
 - **Frontend:** Vue 3 + Vite
 - **Styling:** Tailwind CSS
-- **Backend (optional):** Node.js / Python FastAPI for AI summarization
 - **AI Engine:** OpenAI GPT models (via API)
 
 ## 📦 Project Setup
