@@ -74,7 +74,7 @@ Evaluate the following aspects:
 Output JSON only in this format:
 {
   "score": <total out of 100>,
-  "feedback": "<constructive suggestions for improvement>"
+  "feedback": "<array of constructive suggestions for improvement>"
 }
 `
     this.suggestions_response = await askBrian(evaluatorTemplate, this.openai)

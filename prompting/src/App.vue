@@ -6,7 +6,7 @@ import Marks from './components/RigthSide/Marks.vue'
 import Suggestions from './components/RigthSide/Suggestions.vue'
 
 const marks = ref(0)
-const suggestions = ref('')
+const suggestions = ref([])
 const promtManger = new PromptManager()
 const context = ref(null)
 const isLoading = ref(true)
