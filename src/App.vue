@@ -37,41 +37,36 @@ const fetchResults = async () => {
 </script>
 
 <template>
-  <div class="h-screen flex">
-    <div class="flex-1 bg-blue-50"><PromptInterface :message="context" :isLoading="isLoading" v-model:data="data" :fetchResults="fetchResults"/></div>
-    <div class="flex-1 bg-gray-50 flex flex-col">
+  <div class="app-container">
+    <div class="left-panel">
+      <PromptInterface :message="context" :isLoading="isLoading" v-model:data="data" :fetchResults="fetchResults"/>
+    </div>
+    <div class="right-panel">
       <Marks :marks="marks"/>
       <Suggestions :suggestions="suggestions"/>
     </div>
   </div>
 </template>
 
-
 <style scoped>
-.container{
-  height: 100vh;
+.app-container {
   display: flex;
-  background-color: #bdbbbb98;
-  justify-content: space-evenly;
-  align-items: center;
+  height: 100vh;
+  background-color: #f8f9fa;
 }
-.left{
-  padding: 25px;
-  border-radius: 3%;
-  width: 60%;
-  height: 90%;
-    background-color: #ffff;
-    box-shadow: 2px #aea9a9;
+
+.left-panel {
+  flex: 1;
+  background-color: white;
+  padding: 0;
+  border-right: 1px solid #e0e0e0;
 }
-.right{
-  border-radius: 3%;
-  padding: 25px;
-  width: 30%;
-  height: 90%;
-  background-color: #ffff;
+
+.right-panel {
+  flex: 1;
+  background-color: white;
+  padding: 0;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
 }
 </style>
