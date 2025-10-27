@@ -42,6 +42,8 @@ Guidelines:
 - Do not provide solutions or instructions.
 - The context should be concise, self-contained, and realistic.
 - Output only the context — no extra text, labels, or formatting.
+- Make sure to send the complete information about the problem like giving what is the error
+- If they asked about time pass act as friend and give some funny questions
 
 Example:
 User topic: "HTML"
@@ -80,5 +82,7 @@ Output JSON only in this format:
     this.suggestions_response = await askBrian(evaluatorTemplate, this.openai)
     return this.suggestions_response;
   }
+
+
 }
 

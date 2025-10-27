@@ -1,5 +1,5 @@
 <script setup>
-import { onMounted, ref, watch } from 'vue';
+import { ref, watch } from 'vue';
 const display = ref(false);
 const text = ref('');
 const userInput = ref('');
@@ -14,22 +14,22 @@ const props = defineProps({
   message: String,
   isLoading: Boolean,
   data: String,
-  fetchResults: Function
+  fetchResults: Function,
+  topic:String,
+  setType:Function,
+  resultsFetched:Boolean
 })
 
 const emit = defineEmits(['update:data'])
 
-// Watch for props.data changes and sync with local input
 watch(() => props.data, (newData) => {
   userInput.value = newData || '';
 }, { immediate: true })
 
-// Watch for local input changes and emit to parent
 watch(userInput, (newValue) => {
   emit('update:data', newValue);
 })
 
-// Watch for message changes and start streaming animation
 watch(() => props.message, (newMessage) => {
   if (newMessage && !props.isLoading) {
     text.value = ''; 
@@ -49,10 +49,6 @@ watch(() => props.message, (newMessage) => {
     interval = setInterval(streaming, 100);
   }
 }, { immediate: true })
-
-
-
-
 </script>
 
 <template>
@@ -61,7 +57,7 @@ watch(() => props.message, (newMessage) => {
       <h1 class="main-title">Prompt question</h1>
       <div class="title-underline"></div>
     </div>
-    
+      <DropDown :topic="$props.topic" :setType="$props.setType"/>    
     <div class="content-section">
       <h3 class="instruction-text">Read the below context and write the prompt on the right side you will see the points and marks</h3>
       
@@ -77,14 +73,18 @@ watch(() => props.message, (newMessage) => {
       
       <div class="input-section">
         <textarea 
-          :disabled="props.isLoading" 
+          :disabled="props.isLoading || !props.fetchResults || !props.resultsFetched" 
           v-model="userInput" 
           placeholder="Enter your prompt"
           class="prompt-textarea"
         ></textarea>
         
-        <button @click="submit" class="submit-button">
-          Click to Submit
+        <button 
+          @click="submit" 
+          :disabled="props.isLoading || !props.fetchResults || !props.resultsFetched"
+          class="submit-button"
+        >
+          {{ props.resultsFetched ? 'Click to Submit' : 'Processing...' }}
         </button>
       </div>
     </div>

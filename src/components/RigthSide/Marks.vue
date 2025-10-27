@@ -1,11 +1,12 @@
 <script setup>
 const props = defineProps({
-  marks:Number
+  marks:Number,
+  resultsFetched:Boolean
 })
 </script>
 
 <template>
-  <div class="marks-container">
+  <div class="marks-container" v-if="resultsFetched">
     <div class="result-header">Your Result</div>
     <div class="score-display">
       <span class="score-number">{{ props.marks || 0 }}</span>
@@ -16,6 +17,16 @@ const props = defineProps({
     <div class="progress-container">
       <div class="progress-bar">
         <div class="progress-fill" :style="{ width: (props.marks || 0) + '%' }"></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="loading-container" v-else>
+    <div class="loading-skeleton">
+      <div class="skeleton-circle"></div>
+      <div class="skeleton-content">
+        <div class="skeleton-line skeleton-line-short"></div>
+        <div class="skeleton-line skeleton-line-long"></div>
       </div>
     </div>
   </div>
@@ -67,5 +78,57 @@ const props = defineProps({
   background-color: #333;
   border-radius: 4px;
   transition: width 0.3s ease-in-out;
+}
+
+/* Loading skeleton styles */
+.loading-container {
+  padding: 30px;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.loading-skeleton {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.skeleton-circle {
+  width: 48px;
+  height: 48px;
+  background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+  background-size: 200% 100%;
+  animation: loading 1.5s infinite;
+  border-radius: 50%;
+}
+
+.skeleton-content {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.skeleton-line {
+  height: 20px;
+  background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+  background-size: 200% 100%;
+  animation: loading 1.5s infinite;
+  border-radius: 10px;
+}
+
+.skeleton-line-short {
+  width: 112px; /* equivalent to w-28 */
+}
+
+.skeleton-line-long {
+  width: 144px; /* equivalent to w-36 */
+}
+
+@keyframes loading {
+  0% {
+    background-position: 200% 0;
+  }
+  100% {
+    background-position: -200% 0;
+  }
 }
 </style>
