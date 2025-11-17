@@ -1,18 +1,21 @@
-# AI Research Paper Summarizer
+# Prompt Evaluation Exercise
 
-This is a Vue.js web application that allows users to upload research papers (PDF or text), choose topics of interest, and receive AI-generated summaries based on their selected topics.
+This is a Vue.js web application that helps users practice and improve their prompt engineering skills. Users can select from different topics, receive contextual scenarios, write prompts, and get AI-powered scoring and feedback.
 
 ## 🚀 Features
-- 📂 Upload research papers in PDF or text format
-- 🧠 AI-powered summarization by topic
-- 🗂️ Topic selection to focus summaries on user interests
-- 💾 View and download generated summaries
-- 🎨 Clean and modern UI built with Vue.js and Tailwind CSS
+- 🎯 **Topic Selection** - Choose from various categories to practice prompt writing
+- 📝 **Context Scenarios** - Get relevant background information and scenarios for each topic
+- ✍️ **Prompt Interface** - Write and submit your prompts in a clean, user-friendly interface
+- � **Scoring System** - Receive numerical scores (0-100) for your prompt quality
+- 💡 **AI Feedback** - Get detailed suggestions and recommendations for improvement
+- 🎨 **Modern UI** - Clean interface built with Vue.js and Tailwind CSS
+- ⚡ **Real-time Loading** - Interactive loading states and smooth user experience
 
 ## 🏗️ Tech Stack
 - **Frontend:** Vue 3 + Vite
-- **Styling:** Tailwind CSS
-- **AI Engine:** OpenAI GPT models (via API)
+- **Styling:** Tailwind CSS + Custom CSS
+- **AI Engine:** AI-powered prompt evaluation and scoring
+- **State Management:** Vue 3 Composition API
 
 ## 📦 Project Setup
 
@@ -35,25 +38,29 @@ npm run build
 ```
 src/
  ├── components/
- │    ├── UploadPaper.vue
- │    ├── TopicSelector.vue
- │    ├── SummaryViewer.vue
- ├── pages/
- │    ├── Home.vue
- │    ├── About.vue
+ │    ├── LeftSide/
+ │    │    ├── DropDown.vue        # Topic selection dropdown
+ │    │    ├── PromptInterface.vue # Main prompt input interface
+ │    ├── RigthSide/
+ │    │    ├── Marks.vue           # Score display component
+ │    │    ├── Suggestions.vue     # Feedback and suggestions
+ ├── api/
+ │    ├── PromptEvaluator.js       # API integration for evaluation
  ├── App.vue
  ├── main.js
 ```
 
-## ⚙️ Environment Variables
-Create a `.env` file in the project root with the following keys:
-```
-VITE_API_KEY=<your open route api key>
-```
-
 ## 🧠 How It Works
-1. User uploads a research paper.
-2. User selects topics of interest.
-3. The system processes the paper and extracts summaries relevant to selected topics using AI.
-4. Summaries are displayed in an organized and visually clear format.
+1. **Select Topic** - User chooses a topic from the dropdown menu
+2. **Load Context** - System provides relevant scenario and context information
+3. **Write Prompt** - User crafts their prompt based on the given context
+4. **Submit & Evaluate** - AI analyzes the prompt quality and effectiveness
+5. **Get Results** - User receives a numerical score (0-100) and detailed feedback
+6. **Improve** - User can refine their prompt based on suggestions and try again
+
+## 🎯 Use Cases
+- **Learning Prompt Engineering** - Practice writing effective AI prompts
+- **Skill Assessment** - Evaluate your current prompt writing abilities
+- **Professional Development** - Improve prompts for work-related AI tasks
+- **Educational Training** - Great for workshops and training sessions
 
